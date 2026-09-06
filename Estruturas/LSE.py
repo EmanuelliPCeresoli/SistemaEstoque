@@ -39,3 +39,20 @@ class LSE:
             return "A lista esta vazia."
 
         removido = self.inicio
+
+        if self.inicio == self.fim:
+            self.inicio = None
+            self.fim = None
+            self.total -= 1
+            return removido
+
+        anterior = self.inicio
+
+        while anterior.proximo != self.fim:
+            anterior = anterior.proximo
+
+        anterior.proximo = None
+        self.fim = anterior
+        self.total -= 1
+
+        return removido
