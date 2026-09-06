@@ -19,3 +19,23 @@ class LSE:
         else:
             novo_nodo.proximo = self.inicio
             self.inicio = novo_nodo
+
+        self.total += 1
+
+    def inserir_fim(self, valor):
+        novo_nodo = Nodo(valor)
+
+        if self.esta_vazia():
+            self.inicio = novo_nodo
+            self.fim = novo_nodo
+        else:
+            novo_nodo.proximo = self.inicio
+            self.inicio = novo_nodo
+
+        self.total +=1
+
+    def remover_inicio(self):
+        if self.esta_vazia(self):
+            return "A lista esta vazia."
+
+        removido = self.inicio
