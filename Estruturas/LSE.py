@@ -56,3 +56,23 @@ class LSE:
         self.total -= 1
 
         return removido
+
+    def imprimir_lista(self):
+        atual = self.inicio
+
+        while atual is not None:
+            print(atual)
+            atual = atual.proximo
+
+    def imprimir_horizontal(self):
+        atual = self.inicio
+        elementos = []
+
+        while atual is not  None:
+            elementos.append(f"[{atual}]")
+            atual = atual.proximo
+
+            print(" -> ".join(elementos))
+
+    def tamanhi(self):
+        return self.total
