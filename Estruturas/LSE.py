@@ -74,5 +74,5 @@ class LSE:
 
             print(" -> ".join(elementos))
 
-    def tamanhi(self):
+    def tamanho(self):
         return self.total
