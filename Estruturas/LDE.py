@@ -1,4 +1,4 @@
-from Estruturas.Nodo import Nodo
+import Nodo
 
 class LDE:
 
