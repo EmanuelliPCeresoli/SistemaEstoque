@@ -49,3 +49,26 @@ class LDE:
             self.inicio = self.inicio.proximo
             self.inicio.anterior = None
             removido.proximo = None
+
+        self.total -= 1
+        return removido
+
+    def remover_fim(self):
+        if self.esta_vazia():
+            return "A lista está vazia."
+
+        removido = self.fim
+
+        if self.inicio == self.fim:
+            self.inicio = None
+            self.fim = None
+        else:
+            self.fim = self.fim.anterior
+            self.fim.proximo = None
+            removido.anterior = None
+
+        self.total -= 1
+        return removido
+
+    def imprimir_lista(self):
+        atual = self.inicio
