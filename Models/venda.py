@@ -22,7 +22,7 @@ class Venda:
         total = 0
 
         for item in self.itens:
-            total +-item["quantidade"] * item["preco_unitario"]
+            total += item["quantidade"] * item["preco_unitario"]
 
         return total
 
@@ -30,9 +30,11 @@ class Venda:
         partes = []
 
         for item in self.itens:
-            partes.append( f"{item["codigo_produto"]}:" f"{item["quantidade"]}:" f"{item["preco_unitario"]}")
+            partes.append( 
+                f"{item['codigo_produto']}:{item['quantidade']}:{item['preco_unitario']}"
+                )
 
-        return "|" .join(partes)
+        return "|".join(partes)
 
     def to_csv_row(self):
         return [self.codigo, self.codigo_cliente, self.itens_para_texto(), self.valor_total]
