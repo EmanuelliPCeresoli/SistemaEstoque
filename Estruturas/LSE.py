@@ -62,7 +62,7 @@ class LSE:
                     self.fim = anterior
 
                 atual.proximo = None
-                self.total -1
+                self.total -=1
                 return atual.dado
 
             anterior = atual
@@ -81,7 +81,7 @@ class LSE:
             self.fim = None
 
         removido.proximo = None
-        self.total -1
+        self.total -=1
         return removido
 
     def remover_fim(self):
@@ -114,6 +114,16 @@ class LSE:
             print(atual)
             atual = atual.proximo
 
+    def listar(self):
+        valores = []
+        atual = self.inicio
+
+        while atual is not None:
+            valores.append(atual.dado)
+            atual = atual.proximo
+
+        return valores
+
     def imprimir_horizontal(self):
         atual = self.inicio
         elementos = []
@@ -125,4 +135,7 @@ class LSE:
         print(" -> ".join(elementos))
 
     def tamanho(self):
+        return self.total
+
+    def __len__(self):
         return self.total
