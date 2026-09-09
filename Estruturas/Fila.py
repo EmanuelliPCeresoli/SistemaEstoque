@@ -9,14 +9,14 @@ class Fila:
     def desenfileirar(self):
             """Remove e retorna o primeiro elemento da fila."""
             if self.esta_vazia():
-                 return "Fila Vazia."
+                 raise IndexError ("Fila Vazia.")
 
             return self.elementos.pop(0)
 
     def primeiro(self):
          """Mostra quem é o próximo da fila sem remover."""
          if self.esta_vazia():
-              return "Fila vazia."
+              raise IndexError ("Fila vazia.")
 
          return self.elementos[0]
 
@@ -25,6 +25,12 @@ class Fila:
 
     def tamanho(self):
              return len(self.elementos)
+
+    def __len__(self):
+        return len(self.elementos)
+
+    def listar(self):
+        return list(self.elementos)
 
     def limpar(self):
              """Esvazia toda a fila"""
