@@ -56,3 +56,26 @@ class PersistenciaService:
             print(f"Aviso: não foi possível ler {caminho}.")
 
         return registros
+
+    def salvar_clientes(self, clientes):
+        self._salvar(self.arquivo_clientes, ["codigo", "nome"], clientes)
+
+    def salvar_produtos(self, produtos):
+        self._salvar(self.arquivo_produtos, ["codigo", "nome", "preco", "quantidade"], produtos)
+
+    def salvar_vendas(self, vendas):
+        self._salvar(self.arquivo_vendas, ["codigo", "codigo_cliente", "itens", "valor_total"], vendas)
+
+    def _salvar(self, caminho, cabecalho, registros):
+        try:
+            os.makedirs(os.path.dirname(caminho), exist_ok=True)
+
+            with open(caminho, "w", newline="", encoding="utf-8") as arquivo:
+                escritor = csv.writer(arquivo)
+                escritor.writerow(cabecalho)
+
+                for registro in registros:
+                    escritor.writerow(registro.to_csv_row())
+
+        except OSError as erro:
+            raise ValueError(f"Não foi possível salvar os dados: {erro}")
