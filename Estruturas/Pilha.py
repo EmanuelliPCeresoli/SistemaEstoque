@@ -29,6 +29,9 @@ class Pilha:
         """Remove todos os elementos da Pilha."""
         self.elementos.clear()
 
+    def tamanho(self):
+        return len(self.elementos)
+
     def __len__(self):
         return self.tamanho()
 
