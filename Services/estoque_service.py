@@ -59,3 +59,102 @@ class EstoqueService:
                 maior_codigo = registro.codigo
 
         return maior_codigo + 1
+
+    def cadastrar_cliente(self, nome):
+        nome = nome.strip()
+
+        if nome == "":
+            raise ValueError("O nome do cliente é obrigatório.")
+
+        codigo = self.gerar_proximo_codigo_cliente()
+        cliente = Cliente(codigo, nome)
+
+        self.clientes.inserir_fim(cliente)
+        self.historico.push({"tipo": "cadastrar_cliente", "cliente": cliente})
+
+        self.salvar_clientes()
+        return cliente
+
+    def listar_cliente(self):
+        return self.clientes.listar()
+
+    def buscar_cliente(self, codigo):
+        codigo = int(codigo)
+        return self.clientes.buscar(codigo)
+
+    def remover_cliente(self, codigo):
+        codigo = int(codigo)
+        cliente = self.buscar_cliente(codigo)
+        if cliente is None:
+            raise ValueError("Cliente não encontrado.")
+
+        removido = self.clientes.remover(codigo)
+        if removido is None:
+            raise ValueError("Não foi possível remover o cliente.")
+
+        self.historico.push({"tipo": "remover_cliente", "cliente": cliente})
+        self.salvar_clientes()
+
+        return cliente
+
+    def cadastrar_produto(self, nome, preco, quantidade):
+        nome = nome.strip()
+        preco = float(preco)
+        quantidade = int(quantidade)
+
+        if nome == "":
+            raise ValueError("O nome do produto é obrigatório.")
+
+        if preco <= 0:
+            raise ValueError("O preço deve ser maior que zero.")
+
+        if quantidade < 0:
+            raise ValueError("A quantidade não pode ser negativa.")
+
+        codigo = self.gerar_proximo_codigo_produto()
+        produto = Produto(codigo, nome, preco, quantidade)
+
+        self.produtos.inserir_fim(produto)
+        self.historico.push({"tipo": "cadastrar_produto", "produto": produto})
+        self.salvar_produtos()
+
+        return produto
+
+    def listar_produtos(self):
+        return self.produtos.listar()
+
+    def buscar_produto(self, codigo):
+        codigo = int(codigo)
+        return self.produtos.buscar(codigo)
+
+    def listar_produtos_inverso(self):
+        return self.produtos.listar_inverso()
+
+    def listar_produtos_ordenados_por_id(self):
+        produtos = self.produtos.listar()
+        return ordenar_produtos_por_codigo(produtos)
+
+    def buscar_produto_binario(self, codigo):
+        produtos = (self.listar_produtos_ordenados_por_id())
+        codigo = int(codigo)
+        return buscar_produto_por_codigo(produtos, codigo)
+
+    def atualizar_estoque(self, codigo, nova_quantidade):
+        codigo = int(codigo)
+        nova_quantidade = int(nova_quantidade)
+
+        produto = self.buscar_produto(codigo)
+        if produto is None:
+            raise ValueError("Produto não encontrado.")
+
+        if nova_quantidade < 0:
+            raise ValueError("A quantidade não pode ser negativa.")
+
+        quantidade_anterior = produto.quantidade
+        produto.atualizar_estoque(nova_quantidade)
+
+        self.historico.push({"tipo": "atualizar_estoque", "produto": produto, "quantidade_anterior": quantidade_anterior})
+        self.salvar_produtos()
+
+        return produto
+    
