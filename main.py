@@ -126,3 +126,128 @@ def executar_opcao(opcao, service):
         else:
             for produto in produtos:
                 print(produto)
+
+    elif opcao == 11:
+        produtos = service.listar_produtos_ordenados_por_id()
+
+        if len(produtos) == 0:
+            print("Nenhum produto cadastrado.")
+        else:
+            for produto in produtos:
+                print(produto)
+
+    elif opcao == 12:
+        codigo = ler_inteiro("Código do produto: ")
+        produto = service.buscar_produto_binario(codigo)
+
+        if produto is None:
+            print("Produto não encontrado.")
+        else:
+            print("\nProduto encontrado:")
+            print(produto)
+
+    elif opcao == 13:
+        codigo_cliente = ler_inteiro("Código do cliente: ")
+        codigo_produto = ler_inteiro("Código do produto: ")
+        quantidade = ler_inteiro("Quantidade: ")
+        venda = service.realizar_venda_exemplo(codigo_cliente, codigo_produto, quantidade)
+        print("\nVenda realizada com sucesso!")
+        print(venda)
+
+    elif opcao == 14:
+        vendas = service.listar_vendas()
+
+        if len(vendas) == 0:
+            print("Nenhuma venda realizada.")
+        else:
+            for venda in vendas:
+                print(venda)
+
+    elif opcao == 15:
+        venda = service.primeira_venda()
+
+        if venda is None:
+            print("A fila de vendas está vazia.")
+        else:
+            print("\nPrimeira venda da fila:")
+            print(venda)
+
+    elif opcao == 16:
+        total = service.valor_total_estoque()
+        print(f"\nValor total do estoque: R$ {total:.2f}")
+
+    elif opcao == 17:
+        total = service.valor_total_vendas()
+        print(f"\nValor total das vendas: R$ {total:.2f}")
+
+    elif opcao == 18:
+        dados = service.clientes_e_valores_totais_gastos()
+
+        if len(dados) == 0:
+            print("Nenhuma venda realizada.")
+        else:
+            print("\nClientes e valores totais gastos:")
+
+            for cliente, total in dados:
+                print(f"{cliente} - " f"Total gasto: R$ {total:.2f}")
+
+    elif opcao == 19:
+        resultado = service.cliente_que_mais_gastou()
+
+        if resultado is None:
+            print("Nenhuma venda realizada.")
+        else:
+            cliente, total = resultado
+            print("\nCliente que mais gastou:")
+            print(cliente)
+            print(f"Total gasto: R$ {total:.2f}")
+
+    elif opcao == 20:
+        resultado = service.produto_mais_vendido()
+
+        if resultado is None:
+            print("Nenhuma venda realizada.")
+        else:
+            produto, quantidade = resultado
+            print("\nProduto mais vendido:")
+            print(produto)
+            print(f"Quantidade vendida: {quantidade}")
+
+    elif opcao == 21:
+        resultado = service.desfazer_ultima_operacao()
+
+        if resultado is None:
+            print("Não há operações para desfazer.")
+        else:
+            print(resultado)
+
+    else:
+        print("Opção inválida. Tente novamente.")   
+
+
+def main():
+    service = EstoqueService()
+
+    while True:
+        mostrar_menu()
+
+        try:
+            opcao = ler_inteiro("Escolha uma opcao: ")
+
+            if opcao == 0:
+                print("Sistema encerrado.")
+                break
+
+            executar_opcao(opcao, service)
+
+        except ValueError as erro:
+            print(f"Erro: {erro}")
+        except IndexError as erro:
+            print(f"Erro: {erro}")
+        except NotImplementedError as erro:
+            print(f"Funcionalidade para completar: {erro}")
+
+        pausar()
+
+if __name__ == "__main__":
+    main() 
