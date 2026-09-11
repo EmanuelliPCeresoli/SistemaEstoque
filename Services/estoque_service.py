@@ -127,6 +127,22 @@ class EstoqueService:
         codigo = int(codigo)
         return self.produtos.buscar(codigo)
 
+    def remover_produto(self, codigo):
+        codigo = int(codigo)
+
+        produto = self.produtos.remover(codigo)
+
+        if self.produtos is None:
+            raise ValueError("Produto não encontrado.")
+
+        self.historico.push({
+            "tipo": "remover_produto",
+            "produto": produto
+        })
+
+        self.salvar_produtos()
+        return produto
+
     def listar_produtos_inverso(self):
         return self.produtos.listar_inverso()
 

@@ -1,4 +1,4 @@
-from Nodo import Nodo
+from Estruturas.Nodo import Nodo
 
 
 class LDE:
@@ -134,7 +134,7 @@ class LDE:
             valores.append(atual.dado)
             atual = atual.anterior
 
-            return valores
+        return valores
 
     def imprimir_horizontal(self):
         atual = self.inicio
