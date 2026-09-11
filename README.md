@@ -110,7 +110,7 @@ Complexidade:
 - Melhor caso: O(n)
 - Caso médio: O(n²)
 - Pior caso: O(n²)
-- Espaço adicional: O(1)
+- Espaço adicional: O(n)
 
 ### Busca Binária
 A Busca Binária é utilizada para localizar produtos pelo código.
