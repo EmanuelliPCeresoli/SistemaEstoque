@@ -10,7 +10,7 @@ Projeto desenvolvido para o trabalho avaliativo de Estrutura de Dados, com o obj
 
 ## Integrantes
 
-- Emanuelli
+- 1139729 - Emanuelli Prigol Ceresoli
 - 1139246 - Isadora Severo Sacomori 
 - 1139405 - Maria Eduarda Radin
 
