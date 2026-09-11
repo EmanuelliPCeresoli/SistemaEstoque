@@ -129,6 +129,7 @@ A persistência dos dados é realizada por meio de arquivos CSV.
 
 O sistema utiliza três arquivos principais:
 
+'''text
 data/ 
 ├── clientes.csv 
 ├── produtos.csv 
@@ -154,6 +155,7 @@ Cada venda possui:
 
 ## Organização do projeto
 
+'''text
 SistemaEstoque/
 │ 
 ├── Algoritmos/ 
@@ -195,8 +197,10 @@ SistemaEstoque/
 
 ## Menu do sistema
 
+'''text
 ============================== 
-SISTEMA DE ESTOQUE E VENDAS ============================== 
+SISTEMA DE ESTOQUE E VENDAS 
+============================== 
 1 - Cadastrar cliente 
 2 - Listar clientes 
 3 - Buscar cliente 
