@@ -134,6 +134,7 @@ data/
 ├── clientes.csv 
 ├── produtos.csv 
 └── vendas.csv
+'''
 
 Os arquivos são criados automaticamente pelo sistema quando necessário.
 
@@ -185,6 +186,7 @@ SistemaEstoque/
 │ 
 ├── main.py 
 └── README.md
+'''
 
 ## Tecnologias utilizadas
 
@@ -223,6 +225,7 @@ SISTEMA DE ESTOQUE E VENDAS
 20 - Exibir produto mais vendido 
 21 - Desfazer ultima operacao 
 0 - Sair
+'''
 
 ## Objetivo acadêmico
 
