@@ -129,12 +129,12 @@ A persistência dos dados é realizada por meio de arquivos CSV.
 
 O sistema utiliza três arquivos principais:
 
-'''text
+```text
 data/ 
 ├── clientes.csv 
 ├── produtos.csv 
 └── vendas.csv
-'''
+```
 
 Os arquivos são criados automaticamente pelo sistema quando necessário.
 
@@ -156,7 +156,7 @@ Cada venda possui:
 
 ## Organização do projeto
 
-'''text
+```text
 SistemaEstoque/
 │ 
 ├── Algoritmos/ 
@@ -186,7 +186,7 @@ SistemaEstoque/
 │ 
 ├── main.py 
 └── README.md
-'''
+```
 
 ## Tecnologias utilizadas
 
@@ -199,7 +199,7 @@ SistemaEstoque/
 
 ## Menu do sistema
 
-'''text
+```text
 ============================== 
 SISTEMA DE ESTOQUE E VENDAS 
 ============================== 
@@ -225,8 +225,7 @@ SISTEMA DE ESTOQUE E VENDAS
 20 - Exibir produto mais vendido 
 21 - Desfazer ultima operacao 
 0 - Sair
-'''
-
+```
 ## Objetivo acadêmico
 
 O projeto tem como objetivo aplicar os conteúdos estudados na disciplina de Organização e Abstração na Programação, utilizando estruturas como listas encadeadas, fila, pilha, além de algoritmos de busca e ordenação.
