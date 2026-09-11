@@ -132,7 +132,7 @@ class EstoqueService:
 
         produto = self.produtos.remover(codigo)
 
-        if self.produtos is None:
+        if produto is None:
             raise ValueError("Produto não encontrado.")
 
         self.historico.push({

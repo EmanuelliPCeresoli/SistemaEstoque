@@ -15,5 +15,3 @@ def buscar_produto_por_codigo(produtos_ordenados, codigo):
             inicio = meio + 1
 
     return None
-
-    

@@ -2,11 +2,17 @@
 
 Projeto desenvolvido para o trabalho avaliativo de Estrutura de Dados, com o objetivo de aplicar na prática conceitos de estruturas de dados, algoritmos, orientação a objetos e persistência de dados.
 
+## Informações acadêmicas
+
+- **Disciplina:** Organização e Abstração na Programação
+- **Trabalho:** Sistema de Estoque de Vendas
+- **Linguagem:** Python
+
 ## Integrantes
 
 - Emanuelli
-- Isadora
-- Maria Eduarda Radin
+- 1139246 - Isadora Severo Sacomori 
+- 1139405 - Maria Eduarda Radin
 
 ## Sobre o projeto
 
@@ -17,6 +23,11 @@ O sistema permite cadastrar, consultar, atualizar e remover clientes e produtos,
 O projeto utiliza diferentes estruturas de dados para organizar as informações e algoritmos para realizar operações de busca e ordenção.
 
 Os dados também são armazenados em arquivos CSV, permitindo que as informações sejam mantidas mesmo após o encerramento do programa.
+
+## Como executar
+1. Clone o repositório;
+2. Entre na pasta do projeto;
+3. Execute o programa no "main.py".
 
 ## Funcionalidades
 
@@ -83,13 +94,34 @@ O projeto utiliza algoritmos para realizar operações sobre os dados armazenado
 
 Entre as operações implementadas estão:
 
-- Ordenação de produtos por código;
-- Busca sequencial;
+- Insertion Sort para ordenação de produtos por código;
 - Busca binária de produtos por código;
+- Buscas sequenciais utilizadas nas operações que não exigem Busca Binária;
 - Cálculo do valor total do estoque;
 - Cálculo do valor total das vendas;
 - Identificação do cliente que mais gastou;
 - Identificação do produto mais vendido.
+
+### Insertion Sort
+A ordenação dos produtos por código é realizada utilizando o algoritmo Insertion Sort, implementado manualmente. 
+O algoritmo percorre os produtos e insere cada elemento na posição correta em relação aos anteriores.
+
+Complexidade:
+- Melhor caso: O(n)
+- Caso médio: O(n²)
+- Pior caso: O(n²)
+- Espaço adicional: O(1)
+
+### Busca Binária
+A Busca Binária é utilizada para localizar produtos pelo código.
+Antes da busca, os produtos são organizados em ordem crescente de código.
+A partir disso, o algoritmo compara o código procurado com o elemento central da coleção e elimina metade dos elementos a cada etapa.
+
+Complexidade:
+- Melhor caso: O(1)
+- Caso médio: O(log n)
+- Pior caso: O(log n)
+- Espaço adicional: O(1)
 
 ## Persistência de dados
 
@@ -107,6 +139,18 @@ Os arquivos são criados automaticamente pelo sistema quando necessário.
 Ao iniciar o programa, os dados armazenados nos arquivos são carregados para as estruturas de dados utilizadas pelo sistema.
 
 Durante as operações de cadastro, alteração, remoção e venda, os dados são atualizados nos arquivos correspondentes.
+
+### Formato das vendas
+
+As vendas são armazenadas no arquivo "vendas.csv"
+
+Cada venda possui:
+- código da venda;
+- código do cliente;
+- produtos vendidos;
+- quantidade de cada produto;
+- preço unitário;
+- valor total.
 
 ## Organização do projeto
 
